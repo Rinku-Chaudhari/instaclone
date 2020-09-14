@@ -3,13 +3,13 @@ live view:::
 https://instaclone111111.web.app
 
 
-###USED TECHNOLOGIES
+1. USED TECHNOLOGIES
 * React.Js
 * Node.Js
 * PostgreSQL DB
 * Firebase storage for images
 
-##Features
+2. Features
 * Create user and update profile pic,username and bio
 * User authentication
 * Like Post,Comment on Post,Like Comment,Follow,DELETE post ,ADD post.
