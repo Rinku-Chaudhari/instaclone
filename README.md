@@ -14,6 +14,7 @@
 * Like Post,Comment on Post,Like Comment,Follow,DELETE post ,ADD post.
 * Search for users
 * Get notifications for follow,like and comment.
+* Mobile friendly design
 
 ### ALGORITHMS :)
 * Get posts by me and by people i follow
