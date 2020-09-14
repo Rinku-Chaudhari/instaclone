@@ -1,15 +1,14 @@
-##This is instaclone app.
-live view:::
-https://instaclone111111.web.app
+##### This is instaclone app.
+** live view::: https://instaclone111111.web.app
 
 
-1. USED TECHNOLOGIES
+### USED TECHNOLOGIES
 * React.Js
 * Node.Js
 * PostgreSQL DB
 * Firebase storage for images
 
-2. Features
+### Features
 * Create user and update profile pic,username and bio
 * User authentication
 * Like Post,Comment on Post,Like Comment,Follow,DELETE post ,ADD post.
