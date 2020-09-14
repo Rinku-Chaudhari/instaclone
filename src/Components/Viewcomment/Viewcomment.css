@@ -1,0 +1,64 @@
+.comment {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  width: 100%;
+}
+
+.comment button {
+  background-color: inherit;
+  border: none;
+}
+
+.comment .likes_view:hover {
+  cursor: pointer;
+}
+
+.comment button:hover {
+  cursor: pointer;
+}
+
+.comment button:disabled {
+  opacity: 0.5;
+}
+
+.comment p {
+  padding-right: 2px;
+  font-size: 14px;
+}
+
+.comment .left {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.comment .right {
+  padding-right: 5px;
+  cursor: pointer;
+}
+
+.comment .lr div:last-child {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-size: 11px;
+  margin-top: -25px;
+  color: gray;
+}
+
+.comment .lr div:last-child p {
+  padding-right: 5px;
+}
+
+.comment img {
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  object-fit: cover;
+  padding: 1px;
+  margin: 0 5px 0 7px;
+  margin-top: 10px;
+}

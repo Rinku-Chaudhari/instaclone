@@ -1,0 +1,53 @@
+.viewsearch {
+  position: fixed;
+  top: 30.8%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: solid 1px rgba(0, 0, 0, 0.4);
+  background-color: white;
+  height: 250px;
+  width: 250px;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.viewsearch .founduser {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.2);
+  padding: 2px 0;
+}
+
+.viewsearch .founduser img {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: solid 1px skyblue;
+  padding: 1px;
+  margin-right: 5px;
+  margin-left: 2px;
+  object-fit: cover;
+}
+
+.viewsearch p {
+  font-size: 14px;
+}
+
+.viewsearch .founduser:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 550px) {
+  .viewsearch {
+    width: 100%;
+    height: 79vh;
+    top: 49.4px;
+    left: 0;
+    transform: none;
+    border: none;
+  }
+  .viewsearch .founduser img {
+    margin-left: 5px;
+  }
+}

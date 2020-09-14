@@ -1,0 +1,79 @@
+.comment_section_hide {
+    width: 100%;
+}
+
+.comment_section {
+    width: 100%;
+}
+
+.comment_section_hide form {
+    width: 100%;
+    height: 45px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.comment_section form {
+    width: 100%;
+    height: 45px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.comment_section_hide form input {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: none;
+    padding-left: 10px;
+    outline: none;
+    background-color: inherit;
+}
+
+.comment_section form input {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: none;
+    padding-left: 10px;
+    outline: none;
+    background-color: inherit;
+}
+
+.comment_section_hide form [type="submit"] {
+    width: 80px;
+    background-color: inherit;
+    color: green;
+}
+
+.comment_section form [type="submit"] {
+    width: 80px;
+    background-color: inherit;
+    color: green;
+}
+
+.comment_section_hide form [type="submit"]:hover {
+    cursor: pointer;
+}
+
+.comment_section form [type="submit"]:hover {
+    cursor: pointer;
+}
+
+.comment_section_hide form [type="submit"]:disabled {
+    opacity: 0.6;
+}
+
+.comment_section form [type="submit"]:disabled {
+    opacity: 0.6;
+}
+
+@media (max-width: 550px) {
+    .comment_section_hide {
+        display: none;
+    }
+}

@@ -1,0 +1,44 @@
+.notification {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.notification:hover {
+    cursor: pointer;
+}
+
+.notification .left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.notification p {
+    font-size: 13px;
+}
+
+.notification .profile-pic {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 5px 0 10px;
+}
+
+.notification .post-img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+@media (max-width: 550px) {
+    .notifications .notification {
+        margin-top: 2px;
+    }
+    .notifications .notification .profile-pic {
+        margin: 0 4px;
+    }
+}

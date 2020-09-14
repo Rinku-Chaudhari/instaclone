@@ -1,0 +1,50 @@
+.Recommendedpage {
+  border: solid 1px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  height: auto;
+  margin-left: 50px;
+  position: fixed;
+  padding-bottom: 10px;
+}
+
+.Recommendedpage .recom-users {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-top: -5px;
+}
+
+.Recommendedpage .recom-user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.Recommendedpage .profile-info {
+  line-height: 5px;
+}
+
+.Recommendedpage .profile-info .username {
+  font-weight: bold;
+}
+
+.Recommendedpage .profile-info .username:hover {
+  cursor: pointer;
+}
+
+.Recommendedpage h5 {
+  padding-left: 15px;
+}
+
+.Recommendedpage .profile-img img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  padding: 1px;
+  object-fit: cover;
+  margin-right: 5px;
+}
+
+.Recommendedpage .recom-user p {
+  font-size: 13px;
+}

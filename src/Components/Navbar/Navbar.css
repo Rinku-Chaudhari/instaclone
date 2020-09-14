@@ -1,0 +1,86 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #f8f8ff;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.2);
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 2;
+}
+
+.navbar .actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.navbar .actions button {
+  border: none;
+  margin-right: -7px;
+  background: inherit;
+  margin-top: 8px;
+}
+
+.navbar .actions label:hover {
+  cursor: pointer;
+}
+
+.navbar .actions a {
+  margin-left: 15px;
+  text-decoration: none;
+  color: black;
+}
+
+.navbar .actions .image_form input {
+  display: none;
+}
+
+.navbar i {
+  font-size: 25px;
+}
+
+.navbar img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.navbar .auth_btn button {
+  padding: 4px 10px;
+  margin-left: 5px;
+  border: solid 1px rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+
+.navbar .logout-btn {
+  border: none;
+  background: none;
+  position: fixed;
+  right: 1vw;
+  top: 6px;
+  color: red;
+  font-size: 15px;
+  z-index: 98;
+}
+
+.navbar .logout-btn:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 550px) {
+  .navbar .actions {
+    display: none;
+  }
+}
+
+@media (min-width: 550px) {
+  .navbar .logout-btn {
+    display: none;
+  }
+}

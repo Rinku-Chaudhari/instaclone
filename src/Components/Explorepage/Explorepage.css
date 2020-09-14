@@ -1,0 +1,114 @@
+.explore-page .searchbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.3);
+  background-color: #f8f8ff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 0;
+  z-index: 100;
+}
+
+.explore-page .searchbar .back-btn {
+  position: fixed;
+  top: 13px;
+  left: 1vw;
+  z-index: 89;
+  border: none;
+  background-color: inherit;
+  font-size: 18px;
+  outline: none;
+}
+
+.explore-page .searchbar .back-btn:hover {
+  cursor: pointer;
+}
+
+.explore-page .searchbar form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: solid 1px rgba(0, 0, 0, 0.3);
+}
+
+.explore-page .searchbar form input {
+  padding: 4px 14px;
+  border: none;
+  outline: none;
+}
+
+.explore-page .searchbar form button {
+  padding: 2px 6px 2px 1px;
+  border: none;
+  background-color: white;
+  outline: none;
+}
+
+.explore-page .searchbar form button:hover {
+  cursor: pointer;
+}
+
+.explore-page form .clear-btn {
+  background-color: white;
+}
+
+.explore-page form .clear-btn:hover {
+  cursor: pointer;
+}
+
+.explore-page .images-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: minmax(1, auto);
+  width: 75%;
+  margin: 80px auto;
+  grid-gap: 5px;
+}
+
+.explore-page .image {
+  display: table;
+  position: relative;
+  padding-bottom: 100%;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+}
+
+.explore-page .image:hover {
+  cursor: pointer;
+}
+
+.explore-page .image img {
+  display: table-cell;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  vertical-align: middle;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 550px) {
+  .explore-page .images-grid {
+    width: 100%;
+  }
+  .explore-page .searchbar form input {
+    padding: 4px 10px;
+  }
+}
+
+@media (max-width: 300px) {
+  .explore-page .searchbar {
+    padding-left: 10px;
+  }
+}

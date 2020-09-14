@@ -1,0 +1,55 @@
+.Postoptions .toggler:hover {
+    cursor: pointer;
+}
+
+.Postoptions .toggler {
+    padding: 6px;
+}
+
+.options-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 120px;
+    width: 200px;
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+    border: solid 1px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 120;
+    top: 50vh;
+    margin: auto;
+}
+
+.options-modal .update,
+.unfollow-option {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    text-align: center;
+}
+
+.options-modal button {
+    border-bottom: solid 1px rgba(0, 0, 0, 0.2);
+    background-color: inherit;
+    outline: none;
+    height: 30px;
+    margin-bottom: -1px;
+}
+
+.options-modal button:hover {
+    cursor: pointer;
+}
+
+.show {
+    display: block;
+}
+
+@media (max-width: 800px) {
+    .options-modal {
+        left: 50vw;
+    }
+}

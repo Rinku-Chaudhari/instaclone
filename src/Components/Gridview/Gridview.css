@@ -1,0 +1,13 @@
+.grid_view img {
+	float: left;
+	position: relative;
+	width: 30%;
+	height: auto;
+	object-fit: cover;
+	padding-bottom: 5px; /* = width for a 1:1 aspect ratio */
+	margin: 1.66%;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	z-index: 1;
+}

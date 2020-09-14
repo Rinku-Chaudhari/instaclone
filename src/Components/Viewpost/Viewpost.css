@@ -1,0 +1,6 @@
+.viewpost .post-view {
+  padding-top: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

@@ -1,0 +1,100 @@
+.profile {
+  margin-top: 80px;
+  padding-bottom: 50px;
+}
+
+.profile .post_view_options {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 75%;
+  margin: auto;
+  border-top: solid 1px rgba(0, 0, 0, 0.2);
+  margin-top: 80px;
+}
+
+.profile .image_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: minmax(1, auto);
+  width: 75%;
+  margin: 20px auto;
+  grid-gap: 10px;
+}
+
+.profile .post_g {
+  display: table;
+  position: relative;
+  padding-bottom: 100%;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+}
+
+.profile .post_g img {
+  display: table-cell;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  vertical-align: middle;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.profile .posts_view {
+  width: 100%;
+  margin: auto;
+}
+
+.profile .post_view_options div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 20px;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.profile .post_view_options div:hover {
+  cursor: pointer;
+}
+
+.profile button:hover {
+  cursor: pointer;
+}
+
+.profile button:disabled {
+  opacity: 0.5;
+}
+
+.grid_on,
+.post_on {
+  border-top: solid 1px black;
+  margin-top: -1px;
+}
+
+@media (max-width: 550px) {
+  .profile .post_view_options {
+    width: 100%;
+    border: none;
+    margin-top: 0;
+    margin-bottom: -10px;
+  }
+
+  .profile .post_view_options div p {
+    display: none;
+  }
+
+  .profile .image_grid {
+    width: 100%;
+  }
+  .profile .posts_view {
+    width: 100%;
+  }
+}

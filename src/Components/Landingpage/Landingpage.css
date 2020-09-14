@@ -1,0 +1,31 @@
+.landing_page {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 50vh;
+}
+
+.landing_page .header i {
+	font-size: 70px;
+	margin: 25px 0;
+}
+
+.landing_page .buttons {
+	display: flex;
+	flex-direction: column;
+}
+
+.landing_page a {
+	padding: 5px 20px;
+	text-decoration: none;
+	color: white;
+	margin-top: 10px;
+	text-align: center;
+	background: #008cba;
+	border-radius: 4px;
+}
+
+.landing_page a:nth-child(2) {
+	background: green;
+}
