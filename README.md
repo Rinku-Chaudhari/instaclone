@@ -14,4 +14,8 @@
 * Like Post,Comment on Post,Like Comment,Follow,DELETE post ,ADD post.
 * Search for users
 * Get notifications for follow,like and comment.
+
+### ALGORITHMS :)
+* Get posts by me and by people i follow
+* Get recommendation to follow if they follow me and i don;t follow them
  
