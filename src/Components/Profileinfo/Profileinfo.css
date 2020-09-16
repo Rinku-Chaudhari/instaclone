@@ -48,6 +48,8 @@
 
 .profile_infoo .line3 {
   margin: 10px 0;
+  line-height: 18px;
+  font-size: 14px;
 }
 
 .edit_btn {
@@ -119,8 +121,10 @@
 }
 
 .profile_infoo2 .line3 {
-  padding-left: 15px;
   margin: 15px 0;
+  padding: 2px 0 2px 15px;
+  line-height: 18px;
+  font-size: 14px;
 }
 
 @media (max-width: 550px) {

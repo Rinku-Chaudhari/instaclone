@@ -24,26 +24,30 @@ const Recommended = (props) => {
     <div className="Recommendedpage">
       <h5>Suggestions for you</h5>
       <div className="recom-users">
-        {recommended.map((user) => {
-          return (
-            <div className="recom-user" key={user.id}>
-              <div className="profile-img">
-                <img src={user.profileimage} alt="prof-img" />
+        {recommended.length > 0 ? (
+          recommended.map((user) => {
+            return (
+              <div className="recom-user" key={user.id}>
+                <div className="profile-img">
+                  <img src={user.profileimage} alt="prof-img" />
+                </div>
+                <div className="profile-info">
+                  <p
+                    className="username"
+                    onClick={() =>
+                      props.history.push(`/profile/${user.username}`)
+                    }
+                  >
+                    {user.username}
+                  </p>
+                  <p>Follows you</p>
+                </div>
               </div>
-              <div className="profile-info">
-                <p
-                  className="username"
-                  onClick={() =>
-                    props.history.push(`/profile/${user.username}`)
-                  }
-                >
-                  {user.username}
-                </p>
-                <p>Follows you</p>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })
+        ) : (
+          <p style={{ fontSize: "12px" }}>No recommendations at the moment.</p>
+        )}
       </div>
     </div>
   );

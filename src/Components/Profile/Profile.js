@@ -29,7 +29,6 @@ const Profile = (props) => {
           followingId: profileInfo.id,
           date: new Date(),
         }).then((res) => {
-          context.setUpdatefeed((prev) => !prev);
           setUpdating(false);
         });
       } else {
@@ -37,7 +36,6 @@ const Profile = (props) => {
           unfollowerId: context.userData.id,
           unfollowingId: profileInfo.id,
         }).then((res) => {
-          context.setUpdatefeed((prev) => !prev);
           setUpdating(false);
         });
       }
@@ -48,32 +46,20 @@ const Profile = (props) => {
 
   useEffect(() => {
     Axios.get(
-      `https://instaclone111111.herokuapp.com/userInfo/getProfileInfo/${props.match.params.username}`
+      `https://instaclone111111.herokuapp.com/userInfo/getUserData/${
+        props.match.params.username
+      }/${context.userData.id || 0}`
     ).then((res0) => {
-      setProfileinfo(res0.data);
-      res0.data === "" ? setLoading(false) : setLoading(true);
-
-      if (res0.data !== "") {
-        Axios.get(
-          `https://instaclone111111.herokuapp.com/post/getUserPost/${res0.data.id}`
-        ).then((res) => {
-          setUserposts(res.data);
-          context.userData.id === undefined
-            ? setLoading(false)
-            : setLoading(true);
-
-          if (context.userData.id !== undefined) {
-            Axios.get(
-              `https://instaclone111111.herokuapp.com/userInfo/followedByMe/${res0.data.id}/${context.userData.id}`
-            ).then((res) => {
-              setFollowedbyme(res.data);
-              setLoading(false);
-            });
-          }
-        });
-      }
+      setProfileinfo(res0.data.userData[0]);
+      setUserposts(res0.data.posts);
+      setFollowedbyme(
+        res0.data.userData.length > 0
+          ? res0.data.userData[0].followedbyme
+          : false
+      );
+      setLoading(false);
     });
-  }, [props.match.params.username, context.updateFeed, context.userData]);
+  }, [props.match.params.username, context.userData, updating]);
 
   const toggleViewMode = (mode) => {
     setPostviewmode(mode);
@@ -86,7 +72,7 @@ const Profile = (props) => {
 
         <section
           style={
-            loading || profileInfo !== ""
+            !loading && profileInfo
               ? { display: "none" }
               : { marginTop: "50px", textAlign: "center" }
           }
@@ -96,10 +82,10 @@ const Profile = (props) => {
 
         <section
           className="profile_info_"
-          style={!loading && profileInfo === "" ? { display: "none" } : null}
+          style={!loading && !profileInfo ? { display: "none" } : null}
         >
           <Profileinfo
-            profileInfo={profileInfo}
+            profileInfo={profileInfo ? profileInfo : []}
             posts={userPosts.length}
             context={context}
             updating={updating}
@@ -111,7 +97,7 @@ const Profile = (props) => {
 
         <section
           className="post_view_options"
-          style={!loading && profileInfo === "" ? { display: "none" } : null}
+          style={!loading && !profileInfo ? { display: "none" } : null}
         >
           <div
             className={postViewMode === "grid" ? "grid_on" : null}

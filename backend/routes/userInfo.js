@@ -33,37 +33,28 @@ router.get("/currentUserData/:userId", (req, res) => {
   );
 });
 
-router.get("/getProfileInfo/:username", (req, res) => {
+router.get("/getUserData/:username/:checkingId", (req, res) => {
   db.query(
-    `SELECT id,profileimage,username,array_length(followers,1) as followers,array_length(following,1) as following,
+    `SELECT id,(${req.params.checkingId})::text 
+    IN (SELECT unnest(followers) FROM users WHERE username='${req.params.username}') AS followedByMe,
+    profileimage,username,array_length(followers,1) 
+    as followers,array_length(following,1) as following,
     bio FROM users 
     WHERE username='${req.params.username}'`,
     (err, res0) => {
-      res.send(res0.rows[0]);
-    }
-  );
-});
-
-router.get("/followedByMe/:checkingId/:myId", (req, res) => {
-  db.query(
-    `SELECT followers FROM users WHERE id='${req.params.checkingId}'`,
-    (err, res0) => {
       if (!err) {
-        if (res0.rows.length !== 0) {
-          if (res0.rows[0].followers !== null) {
-            if (res0.rows[0].followers.includes(req.params.myId)) {
-              res.send(true);
-            } else {
-              res.send(false);
-            }
-          } else {
-            res.send(false);
+        db.query(
+          `SELECT postid,profileimage,id as userId,imageurl AS postimage,username,status,array_length(likers,1) as 
+    likers,posteddate FROM posts INNER JOIN users 
+    ON (users.id)::text=posts.ownerkey WHERE posts.ownerkey='${
+      res0.rows.length > 0 ? res0.rows[0].id : "0"
+    }'`,
+          (err1, res1) => {
+            if (err1) console.log(err1);
+            if (!err1) res.send({ userData: res0.rows, posts: res1.rows });
           }
-        } else {
-          res.send(false);
-        }
+        );
       }
-      if (err) console.log(err);
     }
   );
 });
@@ -223,26 +214,11 @@ router.post(`/updateProfilePic/:username`, (req, res) => {
 
 router.get(`/getRecommended/:userId`, (req, res) => {
   db.query(
-    `SELECT following FROM users WHERE id='${req.params.userId}'`,
+    `SELECT profileimage,id,username FROM users WHERE (id)::text 
+    IN (SELECT unnest(followers) FROM users WHERE id=${req.params.userId}) 
+    AND (id)::text NOT IN (SELECT unnest(following) FROM users WHERE id=${req.params.userId})`,
     (err, res0) => {
-      if (!err) {
-        if (res0.rows !== undefined) {
-          const following = res0.rows[0].following;
-          console.log(following);
-          db.query(
-            `SELECT profileimage,id,username FROM users WHERE id IN (${following})`,
-            (err, res1) => {
-              if (res1) {
-                res.send(res1.rows);
-              } else {
-                res.send([]);
-              }
-            }
-          );
-        } else {
-          res.send([]);
-        }
-      }
+      if (!err) res.send(res0.rows);
     }
   );
 });

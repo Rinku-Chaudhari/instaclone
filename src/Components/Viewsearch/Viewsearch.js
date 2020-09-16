@@ -12,7 +12,7 @@ const Viewsearch = (props) => {
   useEffect(() => {
     if (props.search.trim() !== "") {
       Axios.get(
-        `https://instaclone111111.herokuapp.com/userInfo/searchUsers/${props.search}`
+        `https://instaclone111111.herokuapp.com/userInfo/searchUsers/${props.search.toLowerCase()}`
       ).then((res) => {
         setResults(res.data);
       });

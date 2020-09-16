@@ -4,26 +4,13 @@ const db = require("../db");
 //still need to update to get my and my friend post only
 router.get("/myFeed/:userId", (req, res) => {
   db.query(
-    `SELECT following FROM users WHERE id='${req.params.userId}'`,
+    `SELECT postid,profileimage,id as userId,imageurl AS postimage,username,status,array_length(likers,1) as 
+    likers,posteddate FROM posts 
+    INNER JOIN users ON (users.id)::text=posts.ownerkey 
+    WHERE (posts.ownerkey)::text IN (SELECT unnest(array_append(following,'${req.params.userId}')) 
+    FROM users WHERE id=${req.params.userId})`,
     (err, res0) => {
-      const following = [];
-      res0.rows[0].following !== undefined &&
-      res0.rows[0].following !== null &&
-      res0.rows[0].following.length > 0
-        ? following.push(res0.rows[0].following[0], req.params.userId)
-        : following.push(req.params.userId);
-      console.log(following, 14);
-      if (err) console.log(err);
-      db.query(
-        `SELECT postid,profileimage,id as userId,imageurl AS postimage,username,status,array_length(likers,1) as 
-    likers,posteddate 
-      FROM posts INNER JOIN users ON (posts.ownerkey)::integer=(users.id)::integer 
-      WHERE (posts.ownerkey)::integer IN (${following})`,
-        (err, res1) => {
-          if (err) console.log(err);
-          if (!err) res.send(res1.rows);
-        }
-      );
+      res.send(res0.rows);
     }
   );
 });
@@ -150,19 +137,6 @@ router.get("/numOfComments/:postId", (req, res) => {
     `SELECT COUNT(*) AS comment FROM comments WHERE postid='${req.params.postId}'`,
     (err, res0) => {
       res.send(res0.rows);
-    }
-  );
-});
-
-//get user post
-router.get(`/getUserPost/:userId`, (req, res) => {
-  db.query(
-    `SELECT postid,profileimage,id as userId,imageurl AS postimage,username,status,array_length(likers,1) as 
-    likers,posteddate 
-    FROM posts INNER JOIN users ON (posts.ownerkey)::integer=(users.id)::integer 
-    WHERE (posts.ownerkey)::integer='${req.params.userId}'::integer `,
-    (err, res0) => {
-      if (!err) res.send(res0.rows);
     }
   );
 });

@@ -52,53 +52,24 @@ section {
   margin-bottom: -5px;
 }
 
-.post .status {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+.post .other_stuffs p {
+  margin-left: 10px;
   font-size: 14px;
-  margin-bottom: -5px;
 }
 
-.post .status p:first-child {
-  font-weight: bold;
-  margin: 0 5px 0 8px;
+.post .other_stuffs p:first-child:hover,
+p:nth-child(3) {
+  cursor: pointer;
 }
 
-.post .date {
-  margin-left: 8px;
+.post .other_stuffs p:last-child {
   color: grey;
-  font-size: 14px;
-}
-
-.post .view-likes {
-  margin-left: 8px;
-  font-size: 14px;
-  font-weight: bold;
-  margin-bottom: -5px;
-}
-
-.post .view_comments {
-  margin-left: 8px;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-.post .view_comments:hover {
-  cursor: pointer;
-}
-
-.post .view-likes:hover {
-  cursor: pointer;
+  font-size: 13px;
 }
 
 .post button {
   border: none;
   background: inherit;
-}
-
-.post .comment {
-  width: 100%;
 }
 
 .post button:hover {

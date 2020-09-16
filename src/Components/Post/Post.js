@@ -122,35 +122,26 @@ const Post = ({
           </button>
         </section>
 
-        <section
-          style={!likes ? { display: "none" } : null}
-          className="view-likes"
-          onClick={() => history.push(`/viewLikes/${postId}`)}
-        >
-          <p>{likes} likes</p>
-        </section>
-
-        <section
-          className="status"
-          style={!status ? { display: "none" } : null}
-        >
-          <p>{username}</p>
-          <p>{status}</p>
-        </section>
-
-        <section
-          onClick={() => history.push(`/viewComments/${postId}`)}
-          className="view_comments"
-          style={commentNum < 1 ? { display: "none" } : null}
-        >
-          <p>View {commentNum} comments</p>
-        </section>
-
-        <section className="date">
+        <section className="other_stuffs">
+          <p
+            style={!likes ? { display: "none" } : null}
+            onClick={() => history.push(`/viewLikes/${postId}`)}
+          >
+            <b>{likes} likes</b>
+          </p>
+          <p style={!status ? { display: "none" } : null}>
+            <b>{username}</b> {status}
+          </p>
+          <p
+            style={commentNum < 1 ? { display: "none" } : null}
+            onClick={() => history.push(`/viewComments/${postId}`)}
+          >
+            <b>View {commentNum} comments</b>
+          </p>
           <p>{time}</p>
         </section>
 
-        <section className="comment">
+        <section className="comment_section">
           <Commentsection
             postid={postId}
             postOwnerId={userId}
