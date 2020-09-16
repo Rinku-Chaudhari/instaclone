@@ -1,5 +1,6 @@
-## This is instaclone app.
-** live view::: https://instaclone111111.web.app
+## This is instaclone app using React,firebase storage,node and postgres.
+
+### live view::: https://instaclone111111.web.app
 
 
 ### USED TECHNOLOGIES
