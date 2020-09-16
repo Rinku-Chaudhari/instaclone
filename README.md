@@ -1,4 +1,4 @@
-## This is instaclone app using React,firebase storage,node and postgres.
+## This is instaclone app.
 
 ### live view::: https://instaclone111111.web.app
 
