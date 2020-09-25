@@ -20,15 +20,16 @@ const Post = ({
   postedDate,
   status,
   userId,
-  likes,
+  likesCount,
   history,
 }) => {
   const time = Timecalculator(postedDate);
-  const [updating, setUpdating] = useState(false);
   const context = useContext(Context);
   const [likedByMe, setLikedbyme] = useState(false);
   const [commentNum, setCommentnum] = useState("");
   const [loaded, setLoaded] = useState(false);
+
+  const [likes, setLikes] = useState(likesCount);
 
   useEffect(() => {
     Axios.get(
@@ -50,9 +51,10 @@ const Post = ({
 
   const likeUnlike = () => {
     if (context.userData.id !== undefined) {
-      setUpdating(true);
+      setLikedbyme((prev) => !prev);
 
       if (!likedByMe) {
+        setLikes((prev) => prev + 1);
         Axios.post(
           `https://instaclone111111.herokuapp.com/post/likePost/${postId}`,
           {
@@ -60,21 +62,16 @@ const Post = ({
             ownerId: userId,
             date: new Date(),
           }
-        ).then((res) => {
-          setUpdating((prev) => !prev);
-          context.setUpdatefeed((prev) => !prev);
-        });
+        );
       } else {
+        setLikes((prev) => prev - 1);
         Axios.post(
           `https://instaclone111111.herokuapp.com/post/unlikePost/${postId}`,
           {
             userId: context.userData.id,
             ownerId: userId,
           }
-        ).then((res) => {
-          context.setUpdatefeed((prev) => !prev);
-          setUpdating(false);
-        });
+        );
       }
     } else {
       history.push("/login");
@@ -112,7 +109,7 @@ const Post = ({
         </section>
 
         <section className="buttons">
-          <button onClick={likeUnlike} disabled={updating}>
+          <button onClick={likeUnlike}>
             <FavoriteBorderIcon style={likedByMe ? { color: "red" } : null} />
           </button>
           <button>
@@ -138,7 +135,7 @@ const Post = ({
           >
             <b>View {commentNum} comments</b>
           </p>
-          <p>{time}</p>
+          <p>{time.toUpperCase()}</p>
         </section>
 
         <section className="comment_section">
@@ -146,6 +143,8 @@ const Post = ({
             postid={postId}
             postOwnerId={userId}
             setUpdate={context.setUpdatefeed}
+            setCommentnum={setCommentnum}
+            noSideEffect={true}
           />
         </section>
       </div>

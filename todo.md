@@ -1,1 +1,3 @@
-
+- [x] improve comment.js layout
+- [x] remove sideeffect on follow and unfollow
+- [x] remove sideeffect on the post while liking and commenting

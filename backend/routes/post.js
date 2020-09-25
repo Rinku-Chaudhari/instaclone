@@ -10,6 +10,7 @@ router.get("/myFeed/:userId", (req, res) => {
     WHERE (posts.ownerkey)::text IN (SELECT unnest(array_append(following,'${req.params.userId}')) 
     FROM users WHERE id=${req.params.userId})`,
     (err, res0) => {
+      if (err) console.log(err);
       res.send(res0.rows);
     }
   );

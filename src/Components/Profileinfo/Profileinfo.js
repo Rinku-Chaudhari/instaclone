@@ -10,7 +10,7 @@ const Profileinfo = ({
   history,
   followUnfollow,
   followedByMe,
-  Updating,
+  followers,
 }) => {
   let button = "";
 
@@ -32,7 +32,6 @@ const Profileinfo = ({
         <button
           onClick={followUnfollow}
           className="follow_btn"
-          disabled={Updating}
           style={followedByMe ? { display: "none" } : null}
         >
           Follow
@@ -40,7 +39,6 @@ const Profileinfo = ({
         <button
           onClick={followUnfollow}
           className="unfollow_btn"
-          disabled={Updating}
           style={!followedByMe ? { display: "none" } : null}
         >
           Unfollow
@@ -66,9 +64,7 @@ const Profileinfo = ({
               <b>{posts}</b> posts
             </p>
             <p onClick={() => history.push(`/followers/${profileInfo.id}`)}>
-              <b>
-                {profileInfo.followers === null ? 0 : profileInfo.followers}{" "}
-              </b>
+              <b>{followers === null ? 0 : followers} </b>
               followers
             </p>
             <p onClick={() => history.push(`/followings/${profileInfo.id}`)}>
@@ -101,9 +97,7 @@ const Profileinfo = ({
               <b>{posts}</b> posts
             </p>
             <p onClick={() => history.push(`/followers/${profileInfo.id}`)}>
-              <b>
-                {profileInfo.followers === null ? 0 : profileInfo.followers}{" "}
-              </b>
+              <b>{followers === null ? 0 : followers} </b>
               followers
             </p>
             <p onClick={() => history.push(`/followings/${profileInfo.id}`)}>

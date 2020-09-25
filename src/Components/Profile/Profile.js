@@ -16,27 +16,25 @@ const Profile = (props) => {
   const [userPosts, setUserposts] = useState([]);
   const [postViewMode, setPostviewmode] = useState("grid");
   const [followedByMe, setFollowedbyme] = useState(false);
-  const [updating, setUpdating] = useState(false);
+  const [followers, setFollowers] = useState(0);
   const [loading, setLoading] = useState(true);
   const context = useContext(Context);
 
   const followUnfollow = () => {
-    setUpdating(true);
     if (context.userData.id !== undefined) {
+      setFollowedbyme((prev) => !prev);
       if (!followedByMe) {
+        setFollowers((prev) => prev + 1);
         Axios.post(`https://instaclone111111.herokuapp.com/userInfo/follow/`, {
           followerId: context.userData.id,
           followingId: profileInfo.id,
           date: new Date(),
-        }).then((res) => {
-          setUpdating(false);
         });
       } else {
+        setFollowers((prev) => prev - 1);
         Axios.post(`https://instaclone111111.herokuapp.com/userInfo/unfollow`, {
           unfollowerId: context.userData.id,
           unfollowingId: profileInfo.id,
-        }).then((res) => {
-          setUpdating(false);
         });
       }
     } else {
@@ -52,6 +50,7 @@ const Profile = (props) => {
     ).then((res0) => {
       setProfileinfo(res0.data.userData[0]);
       setUserposts(res0.data.posts);
+      setFollowers(res0.data.userData[0].followers);
       setFollowedbyme(
         res0.data.userData.length > 0
           ? res0.data.userData[0].followedbyme
@@ -59,7 +58,7 @@ const Profile = (props) => {
       );
       setLoading(false);
     });
-  }, [props.match.params.username, context.userData, updating]);
+  }, [props.match.params.username, context.userData]);
 
   const toggleViewMode = (mode) => {
     setPostviewmode(mode);
@@ -87,11 +86,10 @@ const Profile = (props) => {
           <Profileinfo
             profileInfo={profileInfo ? profileInfo : []}
             posts={userPosts.length}
+            followers={followers}
             context={context}
-            updating={updating}
             followedByMe={followedByMe}
             followUnfollow={followUnfollow}
-            Updating={updating}
           />
         </section>
 

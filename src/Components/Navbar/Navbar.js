@@ -53,23 +53,27 @@ const Navbar = (props) => {
 						</label>
 					</form>
 				</button>
-				<Link to="/explore">
+				<button onClick={() => props.history.push(`/explore`)}>
 					<SearchIcon />
-				</Link>
-				<Link to="/notifications">
+				</button>
+				<button onClick={() => props.history.push(`/notifications`)}>
 					<NotificationsIcon
 						style={context.unseen ? { color: "red" } : null}
 					/>
-				</Link>
-				<Link to={`/profile/${context.currentUser}`}>
+				</button>
+				<button
+					onClick={() =>
+						props.history.push(`/profile/${context.currentUser}`)
+					}
+				>
 					<img
 						src={context.userData.profileimage}
 						alt="profile_pic"
 					/>
-				</Link>
-				<Link to="/">
+				</button>
+				<button onClick={() => props.history.push(`/`)}>
 					<ArrowForwardIcon onClick={logout} />
-				</Link>
+				</button>
 			</div>
 
 			<div

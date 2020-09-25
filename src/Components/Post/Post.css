@@ -49,12 +49,12 @@ section {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-bottom: -5px;
+  height: 30px;
 }
 
 .post .other_stuffs p {
   margin-left: 10px;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .post .other_stuffs p:first-child:hover,
@@ -64,7 +64,7 @@ p:nth-child(3) {
 
 .post .other_stuffs p:last-child {
   color: grey;
-  font-size: 13px;
+  font-size: 10px;
 }
 
 .post button {

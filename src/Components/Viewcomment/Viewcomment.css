@@ -35,18 +35,19 @@
   align-items: flex-start;
 }
 
-.comment .right {
-  padding-right: 5px;
-  cursor: pointer;
-}
-
 .comment .lr div:last-child {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  align-items: center;
   font-size: 11px;
   margin-top: -25px;
   color: gray;
+}
+
+.comment .lr div:last-child button {
+  transform: scale(0.8);
+  margin-bottom: -5px;
 }
 
 .comment .lr div:last-child p {

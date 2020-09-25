@@ -105,38 +105,34 @@ const Viewcomment = ({
 
           <div>
             <p>{time.slice(0, 6)}</p>
+            <button
+              onClick={likeUnlikeComment}
+              style={context.userData.id === "" ? { display: "none" } : null}
+            >
+              <FavoriteBorderIcon
+                disabled={updating}
+                style={likedByMe ? { color: "red" } : null}
+              />
+            </button>
             <p
               className="likes_view"
               onClick={() => history.push(`/viewCommentLikes/${commentId}`)}
             >
-              {likers === null ? 0 : likers} likes
+              {likers === null ? 0 : likers}
             </p>
+            <button
+              onClick={deleteComment}
+              disabled={deleting}
+              style={
+                context.userData.id !== parseInt(commenterId)
+                  ? { display: "none" }
+                  : null
+              }
+            >
+              <DeleteIcon />
+            </button>
           </div>
         </div>
-      </div>
-
-      <div className="right">
-        <button
-          onClick={deleteComment}
-          disabled={deleting}
-          style={
-            context.userData.id !== parseInt(commenterId)
-              ? { display: "none" }
-              : null
-          }
-        >
-          <DeleteIcon />
-        </button>
-
-        <button
-          onClick={likeUnlikeComment}
-          style={context.userData.id === "" ? { display: "none" } : null}
-        >
-          <FavoriteBorderIcon
-            disabled={updating}
-            style={likedByMe ? { color: "red" } : null}
-          />
-        </button>
       </div>
     </div>
   );

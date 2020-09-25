@@ -21,6 +21,7 @@
     z-index: 120;
     top: 50vh;
     margin: auto;
+    transition: opacity 0.5s ease;
 }
 
 .options-modal .update,
@@ -46,6 +47,19 @@
 
 .show {
     display: block;
+    animation: sss 0.5s linear;
+}
+
+@keyframes sss {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 @media (max-width: 800px) {

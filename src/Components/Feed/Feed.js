@@ -55,7 +55,7 @@ const Feed = () => {
                       postedDate={post.posteddate}
                       userImage={post.profileimage}
                       userId={post.userid}
-                      likes={post.likers}
+                      likesCount={post.likers}
                     />
                   );
                 })
