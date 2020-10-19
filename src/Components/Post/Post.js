@@ -135,7 +135,7 @@ const Post = ({
           >
             <b>View {commentNum} comments</b>
           </p>
-          <p>{time.toUpperCase()}</p>
+          <p style={{ textTransform: "uppercase" }}>{time}</p>
         </section>
 
         <section className="comment_section">

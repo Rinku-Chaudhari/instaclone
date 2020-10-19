@@ -37,7 +37,7 @@ const Viewpost = (props) => {
             postedDate={post.posteddate}
             userImage={post.profileimage}
             userId={post.userid}
-            likes={post.likers}
+            likesCount={post.likers}
           />
         ) : (
           <p

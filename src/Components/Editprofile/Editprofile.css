@@ -1,70 +1,83 @@
 .edit_profile .edit_username {
-	width: 50%;
-	margin: auto;
-	margin-top: 50px;
+  width: 50%;
+  margin: auto;
+  margin-top: 50px;
 }
 
 .edit_profile .edit_profilepic {
-	width: 50%;
-	margin: auto;
-	margin-top: 50px;
+  width: 50%;
+  margin: auto;
+  margin-top: 50px;
 }
 
 .edit_profile form textarea {
-	max-width: 100%;
-	min-width: 100%;
-	box-sizing: border-box;
-	border: solid 1px rgba(0, 0, 0, 0.2);
-	font-family: inherit;
-	padding-left: 10px;
-	outline: none;
+  max-width: 100%;
+  min-width: 100%;
+  box-sizing: border-box;
+  border: solid 1px rgba(0, 0, 0, 0.2);
+  font-family: inherit;
+  padding-left: 10px;
+  outline: none;
 }
 
 .edit_profile form label {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 .edit_profile .edit_profilepic form input:first-child {
-	display: none;
+  display: none;
 }
 
 .edit_profile form {
-	display: flex;
-	flex-direction: column;
-	align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
 .edit_profile .edit_profilepic form label {
-	border: solid 1px rgba(0, 0, 0, 0.2);
-	font-size: 15px;
-	height: 25px;
+  border: none;
+  font-size: 14px;
+  height: 25px;
+  padding-left: 10px;
+  border: solid 1px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .edit_profile .edit_profilepic form label:hover {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .edit_profile form input {
-	padding: 5px 15px;
-	border: solid 1px rgba(0, 0, 0, 0.2);
-	outline: none;
-	margin-top: 5px;
+  padding: 5px 15px;
+  border: solid 1px rgba(0, 0, 0, 0.2);
+  outline: none;
+  margin-top: 5px;
 }
 
 .edit_profile form [type="submit"]:hover {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .edit_profile .error_view {
-	font-size: 14px;
-	color: red;
+  font-size: 14px;
+  color: red;
+}
+
+.edit_profile [type="submit"] {
+  border: none;
+  padding: 8px 10px;
+  font-family: inherit;
+  margin-top: 10px;
+  font-weight: bold;
 }
 
 @media (max-width: 550px) {
-	.edit_profile .edit_username {
-		width: 75%;
-	}
-	.edit_profile .edit_profilepic {
-		width: 75%;
-	}
+  .edit_profile .edit_username {
+    width: 75%;
+  }
+  .edit_profile .edit_profilepic {
+    width: 75%;
+  }
 }

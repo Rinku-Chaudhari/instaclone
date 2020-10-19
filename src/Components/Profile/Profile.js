@@ -119,7 +119,7 @@ const Profile = (props) => {
         >
           {userPosts
             .sort((a, b) => {
-              return new Date(b.date) - new Date(a.date);
+              return new Date(b.posteddate) - new Date(a.posteddate);
             })
             .map((post) => {
               return (
@@ -136,7 +136,7 @@ const Profile = (props) => {
         >
           {userPosts
             .sort((a, b) => {
-              return new Date(b.date) - new Date(a.date);
+              return new Date(b.posteddate) - new Date(a.posteddate);
             })
             .map((post) => {
               return (
@@ -149,7 +149,7 @@ const Profile = (props) => {
                   postedDate={post.posteddate}
                   userImage={post.profileimage}
                   userId={post.userid}
-                  likes={post.likers}
+                  likesCount={post.likers}
                   hideOpt={true}
                 />
               );

@@ -20,6 +20,7 @@ import Viewnotifications from "./Components/Viewnotifications/Viewnotifications"
 import Explorepage from "./Components/Explorepage/Explorepage";
 import Page404 from "./Components/404Page/Page404";
 import Viewpost from "./Components/Viewpost/Viewpost";
+import Chatcenter from "./Components/Chatcenter/Chatcenter";
 
 function App(props) {
   const [currentUser, setCurrentuser] = useState("");
@@ -97,6 +98,7 @@ function App(props) {
         <Route path="/explore" exact component={Explorepage} />
         <Route path="/viewPost/:postId" exact component={Viewpost} />
         <Route path="/notifications" exact component={Viewnotifications} />
+        <Route path="/chat" exact component={Chatcenter} />
         <Route component={Page404} />
       </Switch>
     </Context.Provider>

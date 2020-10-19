@@ -4,6 +4,7 @@ import Bottombar from "../Bottombar/Bottombar";
 import Viewsearch from "../Viewsearch/Viewsearch";
 import ClearIcon from "@material-ui/icons/Clear";
 import Loadericon from "../Loadericon/Loadericon";
+import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import Axios from "axios";
 
 import "./Explorepage.css";
@@ -35,7 +36,7 @@ const Explorepage = (props) => {
       >
         <div className="searchbar">
           <button onClick={() => props.history.goBack()} className="back-btn">
-            <i className="fas fa-chevron-left"></i>
+            <ArrowBackIosIcon />
           </button>
 
           <form>

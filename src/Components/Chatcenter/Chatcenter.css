@@ -1,0 +1,76 @@
+.chat_box {
+  width: 75%;
+  margin: auto;
+  border: solid 1px rgba(0, 0, 0, 0.1);
+  margin-top: 70px;
+  display: flex;
+  flex-direction: row;
+  height: 400px;
+}
+
+.chat_box .person {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 14px;
+  padding: 0 50px 0 0;
+  width: 20%;
+}
+
+.chat_box .person img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin: 0 5px 0 10px;
+}
+
+.chat_section {
+  border-left: solid 1px rgba(0, 0, 0, 0.1);
+  width: 80%;
+}
+
+.chat_section form {
+  position: absolute;
+  top: 434px;
+  border: solid 1px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 35px;
+}
+
+.chat_section form input {
+  border: none;
+  border-bottom: none;
+  border-left: none;
+  outline: none;
+  width: 200px;
+}
+
+.chat_section form button {
+  border: none;
+  background: none;
+}
+
+.chat_section form button:hover {
+  cursor: pointer;
+}
+
+.chat .sent {
+  background-color: skyblue;
+  border-radius: 5px;
+  padding: 5px;
+  margin-left: 5px;
+  float: left;
+  font-size: 15px;
+}
+
+.chat .received {
+  background-color: #f8f8ff;
+  border-radius: 5px;
+  padding: 5px;
+  float: right;
+  clear: both;
+  font-size: 15px;
+}

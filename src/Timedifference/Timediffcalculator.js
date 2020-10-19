@@ -24,7 +24,7 @@ const timeCalculator = (dateToConvert, short_form) => {
       ? diff.days + " day ago"
       : diff.days + " days ago";
   }
-  return result;
+  return diff.days <= 7 ? result : dateToConvert.slice(0, 10);
 };
 
 export default timeCalculator;
